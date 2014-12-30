@@ -1,0 +1,56 @@
+/**
+ * We are practicing using methods by calculating various monetary things.
+ * 
+ * @Brandon Berookhim
+ * @V1
+ */
+public class monetaryPractice
+{
+    //Here is our main method for testing, etc.
+    //This is where the program typically starts.
+    public static void main (String[] args) {
+        System.out.println("\n-------------------------Program Starting-------------------------");
+        System.out.println("Here is the cost of a $100 sweater that's 25% off!");
+        System.out.println("$" + calcSalePrice(100, .25));
+        System.out.println("-------Next Method-------");
+        System.out.println("Here is the cost of a $10 frisbee marked up 50%!");
+        System.out.println("$" + calcMarkupPrice(10, .5));
+        System.out.println("-------Next Method-------");
+        System.out.println("Here is the cost of buying 7 goods that cost $25 dollars that are 40% off!");
+        System.out.println("$" + calcTotalCost(25, .4, 7));
+        System.out.println("-------Next Method-------");
+        System.out.println("Here is the profit made by selling 15 goods that cost $20 with a markup of 30%!");
+        System.out.println("$" + calcProfit(20, .3, 15));
+        //System.out.println("-------Next Method-------");
+    }
+
+    //Determines the sale price of an item given the item and the sale percentage.
+    public static double calcSalePrice (double price, double sale) {
+        sale = 1 - sale;
+        price *= sale;
+        return price;
+    }
+
+    //Determines the price including markup if you give the original price and the markup percentage.
+    public static double calcMarkupPrice(double price, double markup) {
+        markup  = 1 + markup;
+        price *= markup;
+        return price;
+    }
+
+    //Determines the total cost of buying a bunch of things that cost the same price and have the same discount.
+    public static double calcTotalCost(double price, double discount, int numItems) {
+        price = calcSalePrice(price, discount);
+        price *= numItems;
+        return price;
+    }
+
+    //Determines the total profit made by selling a bunch of things that cost the same with the same markup.
+    public static double calcProfit(double cost, double markup, double numItems) {
+        double profit = calcMarkupPrice(cost, markup) - cost;
+        profit *= numItems;
+        return profit;
+    }
+    
+    
+}
